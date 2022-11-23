@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bodyfit.restapi.model.dao.ReviewDao">
+    <resultMap id="reviewMap" type="Review">
+        <result column="review_id" property="reviewId"/>
+        <result column="user_seq" property="userSeq"/>
+        <result column="video_id" property="videoId"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="nickname" property="nickName"/>
+    </resultMap>
+    <resultMap id="reviewCommentMap" type="ReviewComment">
+        <result column="comment_id" property="commentId"/>
+        <result column="user_seq" property="userSeq"/>
+        <result column="review_id" property="reviewId"/>
+        <result column="nickname" property="nickName"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="group_id" property="groupId"/>
+        <result column="group_order" property="groupOrder"/>
+        <result column="depth" property="depth"/>
+        <result column="original_comment_id" property="originalCommentId"/>
+    </resultMap>
+
+    <insert id="insertReview" parameterType="Review">
+        INSERT INTO `review` (user_seq, video_id, title, content, view_count, create_time, update_time)
+        VALUES (#{userSeq}, #{videoId}, #{title}, #{content}, 0, now(), now());
+    </insert>
+    <update id="updateReview" parameterType="Review">
+        UPDATE `review`
+        SET title = #{title},
+        content = #{content},
+        view_count = #{viewCount},
+        update_time = now()
+        WHERE review_id = #{reviewId};
+    </update>
+    <update id="updateReviewViewCount" parameterType="long">
+        UPDATE `review`
+        SET view_count = view_count + 1
+        WHERE review_id = #{reviewId};
+    </update>
+    <delete id="deleteReview" parameterType="long">
+        DELETE FROM `review`
+        WHERE review_id = #{reviewId};
+    </delete>
+    <select id="selectReviewByReviewId" parameterType="long" resultMap="reviewMap">
+        SELECT r.review_id, r.user_seq, u.nickname, r.video_id, r.title, r.content, r.view_count, r.create_time,
+        r.update_time
+        FROM `review` r
+        INNER JOIN `user` u
+        ON r.user_seq = u.user_seq
+        WHERE r.review_id = #{reviewId};
+    </select>
+
+    <select id="selectReviewsByUserSeq" parameterType="SearchCondition" resultMap="reviewMap">
+        SELECT r.review_id, r.user_seq, u.nickname, r.video_id, r.title, r.content, r.view_count, r.create_time,
+        r.update_time
+        FROM `review` r
+        INNER JOIN `user` u
+        ON r.user_seq = u.user_seq
+        WHERE r.user_seq = #{keyword}
+        ORDER BY r.review_id DESC
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+
+    <select id="selectReviewsBySearchCondition" parameterType="SearchCondition" resultMap="reviewMap">
+        SELECT r.review_id, r.user_seq, u.nickname, r.video_id, r.title, r.content, r.view_count, r.create_time,
+        r.update_time
+        FROM `review` r
+        INNER JOIN `user` u
+        ON r.user_seq = u.user_seq
+        <choose>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                WHERE r.title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"content".equalsIgnoreCase(mod)'>
+                WHERE r.content LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"user_seq".equalsIgnoreCase(mod)'>
+                WHERE r.user_seq = #{keyword}
+            </when>
+            <when test='"nickname".equalsIgnoreCase(mod)'>
+                WHERE u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <otherwise>
+                WHERE r.video_id = #{keyword}
+            </otherwise>
+        </choose>
+        <choose>
+            <when test='"view_count".equalsIgnoreCase(orderBy)'>
+                ORDER BY r.view_count DESC
+            </when>
+            <otherwise>
+                ORDER BY r.review_id DESC
+            </otherwise>
+        </choose>
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+    <select id="getTotalReviewBySearchCondition" parameterType="SearchCondition" resultType="int">
+        SELECT COUNT(r.review_id)
+        FROM `review` r
+        INNER JOIN `user` u
+        ON r.user_seq = u.user_seq
+        <choose>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                WHERE r.title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"content".equalsIgnoreCase(mod)'>
+                WHERE r.content LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"user_seq".equalsIgnoreCase(mod)'>
+                WHERE r.user_seq = #{keyword}
+            </when>
+            <when test='"nickname".equalsIgnoreCase(mod)'>
+                WHERE u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <otherwise>
+                WHERE r.video_id = #{keyword}
+            </otherwise>
+        </choose>
+    </select>
+
+
+    <insert id="insertComment" parameterType="ReviewComment" useGeneratedKeys="true" keyColumn="comment_id"
+            keyProperty="commentId">
+        INSERT INTO `review_comment` (user_seq, review_id, content, create_time, update_time, deleted, group_id,
+        group_order, depth, original_comment_id)
+        VALUES (#{userSeq}, #{reviewId}, #{content}, now(), now(), 0, #{groupId}, #{groupOrder}, #{depth},
+        #{originalCommentId});
+    </insert>
+    <update id="updateComment" parameterType="ReviewComment">
+        UPDATE `review_comment`
+        SET group_id = #{groupId},
+        group_order = #{groupOrder},
+        content = #{content}
+        WHERE comment_id = #{commentId};
+    </update>
+    <update id="updateCommentsOrder" parameterType="ReviewComment">
+        UPDATE `review_comment`
+        SET group_order = group_order + 1
+        WHERE group_id = #{groupId} AND group_order >= #{groupOrder};
+    </update>
+    <update id="deleteComment" parameterType="long">
+        UPDATE `review_comment`
+        SET deleted = 1
+        WHERE comment_id = #{commentId};
+    </update>
+    <select id="getCommentOrder" parameterType="ReviewComment" resultType="int">
+        SELECT IFNULL ((
+        WITH RECURSIVE cte AS (
+            SELECT r.comment_id, r.group_order, r.original_comment_id
+            FROM `review_comment` r
+            WHERE r.original_comment_id = #{commentId}
+
+            UNION ALL
+
+            SELECT r.comment_id, r.group_order, r.original_comment_id
+            FROM `review_comment` r , cte
+            WHERE r.original_comment_id = cte.comment_id
+        )
+        SELECT MAX(group_order)
+        FROM cte) + 1,
+        #{groupOrder} + 1) AS result;
+
+    </select>
+    <select id="selectReviewCommentById" parameterType="long" resultMap="reviewCommentMap">
+        SELECT * FROM `review_comment`
+        WHERE comment_id = #{commentId};
+    </select>
+    <select id="selectCommentsByReviewId" parameterType="PageCondition" resultMap="reviewCommentMap">
+        SELECT c.comment_id, c.user_seq, c.review_id, IF(deleted > 0 , "삭제된 댓글입니다.",c.content) AS content,
+        c.create_time,
+        c.update_time, c.deleted, c.group_id,
+        c.group_order, c.depth, c.original_comment_id, u.nickname
+        FROM `review_comment` c
+        INNER JOIN `user` u
+        ON c.user_seq = u.user_seq
+        WHERE c.review_id = #{reviewId}
+        ORDER BY c.group_id ASC, c.group_order ASC
+        LIMIT #{offset}, #{countPerPage};
+    </select>
+    <select id="getTotalCommentByReviewId" parameterType="long" resultType="int">
+        SELECT COUNT(*)
+        FROM `review_comment`
+        WHERE review_id = #{reviewId};
+    </select>
+</mapper>
