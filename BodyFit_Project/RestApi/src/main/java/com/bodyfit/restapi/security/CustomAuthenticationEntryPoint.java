@@ -10,10 +10,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
-/**
- * 인증 실패시 결과를 처리해주는 로직을 가지고 있는 클래스
- * 예제 13.21, 예제 13.32
- */
 @Slf4j
 @Component
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
@@ -22,7 +18,7 @@ public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint 
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException ex) throws IOException {
             ObjectMapper objectMapper = new ObjectMapper();
-            log.info("[commence] 인증 실패로 response.sendError 발생");
+            log.warn("Authentication Error");
 
             String msg = "인증 실패";
 

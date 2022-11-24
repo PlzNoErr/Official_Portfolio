@@ -73,7 +73,7 @@ export default {
   computed: {
     ...mapState(["videos"]),
     title() {
-      return "최근 핫한 영상";
+      return "최근 등록된 영상";
     },
   },
   methods: {

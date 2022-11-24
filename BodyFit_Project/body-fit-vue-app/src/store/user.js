@@ -70,14 +70,17 @@ export default {
         url: URL,
         method: "POST",
         data: {
-          userId: payload.id,
+          userId: payload.userId,
           password: payload.password,
         },
       })
         .then((res) => {
+          console.log(payload);
           if (res.data.userId) {
             sessionStorage.setItem("access-token", res.data["access-token"]);
-            alert("로그인 성공!");
+            if (!payload.modify) {
+              alert("로그인 성공!");
+            }
             commit("LOGIN_CHECK", res.data.nickName);
             $.defaults.headers["access-token"] = sessionStorage.getItem("access-token");
             router.push("/");
@@ -114,21 +117,21 @@ export default {
         url: URL,
         method: "PUT",
         data: {
-          userId: payload.id,
+          userId: payload.userId,
           password: payload.password,
           email: payload.email,
-          nickName: payload.nickname,
+          nickName: payload.nickName,
         },
       })
         .then(() => {
+          payload.modify = true;
           context.dispatch("loginRequest", payload);
           alert("정보수정 성공!");
-          router.go();
           router.push("/");
           return;
         })
         .catch((err) => {
-          if(err.response.status===401){
+          if (err.response.status === 401) {
             alert("로그인이 필요한 요청입니다!")
             router.push("/users/login");
           }
@@ -142,7 +145,7 @@ export default {
       let payload = Buffer.from(base64Payload, "base64");
       let result = JSON.parse(payload.toString());
 
-   
+
       let API_URL = `/api/users/followlist/${result.userSeq}`;
 
       $.get(API_URL)
@@ -178,7 +181,7 @@ export default {
           }
         })
         .catch((err) => {
-          if(err.response.status===401){
+          if (err.response.status === 401) {
             alert("로그인이 필요한 요청입니다!")
             router.push("/users/login");
           }
@@ -202,7 +205,7 @@ export default {
           }
         })
         .catch((err) => {
-          if(err.response.status===401){
+          if (err.response.status === 401) {
             alert("로그인이 필요한 요청입니다!")
             router.push("/users/login");
           }

@@ -82,8 +82,8 @@ export default {
         url: URL,
         method: "POST",
         data: {
-          userId: this.signupinfo.id,
-          nickName: this.signupinfo.nickname,
+          userId: this.signupinfo.userId,
+          nickName: this.signupinfo.nickName,
         },
       })
         .then((res) => {

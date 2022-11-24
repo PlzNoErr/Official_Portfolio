@@ -14,7 +14,7 @@
         <div class="sign-in-htm">
           <div class="group">
             <label for="user" class="label">id</label>
-            <input id="user" type="text" class="input" v-model="logininfo.id" />
+            <input id="user" type="text" class="input" v-model="logininfo.userId" />
           </div>
           <div class="group">
             <label for="pass" class="label">Password</label>
@@ -47,14 +47,14 @@ export default {
   data() {
     return {
       logininfo: {
-        id: "",
+        userId: "",
         password: "",
       },
     };
   },
   methods: {
     loginrequest() {
-      if (this.logininfo.id === "" || this.logininfo.password === "") {
+      if (this.logininfo.userId === "" || this.logininfo.password === "") {
         alert("아이디와 비밀번호를 모두 입력해 주세요!");
         return;
       }

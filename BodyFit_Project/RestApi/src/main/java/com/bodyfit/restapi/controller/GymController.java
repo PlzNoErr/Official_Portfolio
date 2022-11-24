@@ -26,7 +26,7 @@ public class GymController {
         this.gymService = gymService;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     @ApiOperation("헬스장을 등록합니다. gymName, address, latitude, longitude가 필요합니다.")
     public ResponseEntity<Void> createGym(@RequestBody Gym gym) {
         try {

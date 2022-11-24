@@ -63,7 +63,7 @@ public class ArticleServiceImpl implements ArticleService{
                 articleComment.setGroupId(originalComment.get().getGroupId());
                 articleComment.setGroupOrder(articleDao.getCommentOrder((originalComment.get())));
                 articleComment.setDepth(originalComment.get().getDepth() + 1);
-                int a = articleDao.updateCommentsOrder(articleComment);
+                articleDao.updateCommentsOrder(articleComment);
                 articleDao.insertComment(articleComment);
             }
         }

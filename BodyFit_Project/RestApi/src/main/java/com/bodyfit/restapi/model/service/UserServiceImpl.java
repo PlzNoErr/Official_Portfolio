@@ -4,6 +4,7 @@ import com.bodyfit.restapi.model.dao.UserDao;
 import com.bodyfit.restapi.model.dto.Follow;
 import com.bodyfit.restapi.model.dto.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,13 +13,18 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService{
     private final UserDao userDao;
+    private PasswordEncoder passwordEncoder;
+
     @Autowired
-    UserServiceImpl(UserDao userDao){
+    public UserServiceImpl(UserDao userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
+
 
     @Override
     public void singupUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.insertUser(user);
     }
 
@@ -30,6 +36,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void updateUserInfo(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.updateUser(user);
     }
 
@@ -40,7 +47,11 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public Optional<User> checkUserForLogin(String userId, String password) {
-        return userDao.seletUserByIdandPassword(userId, password);
+        User user = userDao.selectUserById(userId);
+        if(user != null && passwordEncoder.matches(password, user.getPassword())) {
+            return Optional.of(user);
+        }
+        return Optional.empty();
     }
 
     @Override
