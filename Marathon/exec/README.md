@@ -33,21 +33,30 @@
     > - 관리자는 공지사항을 등록, 수정, 삭제합니다.
     > - 관리자는 상담신청을 관리하고 화상 상담방을 개설하여 재활사와 환자의 서비스 이용을 촉진합니다.
 
+  - **Supported Service**
+
+    > - 반응형 웹으로 설계되어서 멀티 디바이스를 지원합니다.
+
 ## 📌 목차
 
-[🏃‍♂️ Marathon 🏃‍♀️](#marathon)
+[🏃‍♂️ Marathon 🏃‍♀️]
 
-- [시작하기](#-시작하기)
+- [프로젝트 시작하기](#🏃-프로젝트-시작하기)
   - [시작하기에 앞서](#시작하기에-앞서)
+  - [지원하는 브라우저](#-지원하는-브라우저)
   - [설치하기](#설치하기)
   - [실행하기](#실행하기)
   - [배포하기](#배포하기)
-  - [데모](#데모)
-- [지원하는 브라우저](#-지원하는-브라우저)
-- [사용된 도구](#🛠️-사용된-도구)
-- [사용된 기술](#🖥️-사용된-기술)
-- [시스템 아키텍쳐](#🖥️-시스템-아키텍쳐)
 - [시연연상](#시연연상)
+- [서비스 기획]
+  - [1. 프로젝트 Conventions]
+  - [2. 프로젝트 아이디어 기획]
+  - [3. Flow Chart]
+  - [4. ERD 다이어그램]
+  - [5. 사용된 도구]
+  - [6. 사용된 기술]
+  - [7. 시스템 아키택쳐]
+  - [8. Design & MockUp]
 - [서비스 소개](#📼-서비스-소개)
   - [1. 메인페이지](#1-메인페이지)
   - [2. 상담신청](#2-상담신청)
@@ -67,7 +76,7 @@
   - [16. 기타페이지](#16-기타페이지)
 - [저자](#-저자)
 
-## 🏃 시작하기
+## 🏃 프로젝트 시작하기
 
 아래 방법을 따르시면 프로젝트를 실행시킬 수 있습니다.
 
@@ -204,10 +213,6 @@
 
 8. npm build (dist 폴더 생성)
 
-### 데모
-
-[여기](https://i8a304.p.ssafy.io)를 클릭하세요.
-
 ## 🌐 지원하는 브라우저
 
 | <img src='https://user-images.githubusercontent.com/19357410/91040268-e27b8100-e648-11ea-9dfa-21123112fd23.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040279-e7403500-e648-11ea-8b38-07049ca300af.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040276-e6a79e80-e648-11ea-8c97-ddc1d35d761c.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040282-e7403500-e648-11ea-9f42-d8abd35e9b50.png' width=60> |
@@ -221,7 +226,7 @@
 - Npm 8.19.2
 - Spring boot 2.5.6
 - Gradle 7.6
-- IDE: Visual Studio Code 1.48, IntelliJ IDEA 2022.3.1
+- IDE: Visual Studio Code 1.48 / IntelliJ IDEA 2022.3.1
 
 ## 🖥️ 사용된 기술
 
@@ -250,10 +255,10 @@
 
 **[ FRONT END ]**
 
-- **React** : 프로젝트 레이아웃 작성을 위한 front-end framework
-  _ **React-redux** : 전역 클라이언트 state를 편리하게 관리하기 위한 통합 라이브러리
-  _ **React-Router-Dom** : 최소한의 새로고침으로 SPA의 기능을 극대화하고 유저의 사용경험을 부드럽게 만들기 위해 사용되는 route관리 라이브러리 \* **Styled-Components** : 태그에 css를 부여할 때 사용되는 className의 경우 css 파일내에 변수 값을 사용할 수 없기 때문에 사용된 라이브러리.
-  styled components를 사용해 조건에 따라 속성 값이 바뀌도록 설정
+- **React** : 프로젝트 레이아웃 작성을 위한 Front-end Framework
+- **React-redux** : 전역 클라이언트 state를 편리하게 관리하기 위한 통합 라이브러리
+- **React-Router-Dom** : 최소한의 새로고침으로 SPA의 기능을 극대화하고 유저의 사용 경험을 부드럽게 만들기 위해 사용되는 route관리 라이브러리
+- **Styled-Components** : CSS를 여러 조건상황에 맞게 동적으로 적용하기 위해서 사용.
 - **React-query** : 서버 state와 클라이언트 state를 분리하여 상태관리의 가독성을 높이고 다양한 캐싱, refetch 기능을 활용하여 효율적으로 서버 사이드 state를 효율적으로 관리하도록 유용한 기능을 제공.
 - **Openvidu-browser** : 복잡한 webRTC기능을 캡슐화 하여서 최소한의 커스터마이징만으로 화상기능을 사용 할 수 있도록 라이브러리를 제공
 - **websocket-Sockjs** : websocket 통신 기능을 제공하는 라이브러리. websocket을 지원하지 않는 브라우저에서도 websocket 통신 활성화. sockjs를 통해 websocket 연결
