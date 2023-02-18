@@ -22,42 +22,64 @@
     > - 재활진료가 끝나면 영상이 저장되고, 기록을 재활기록페이지에서 확인합니다.
     > - 스스로학습 페이지를 통해 3가지 게임을 난이도에 맞춰 실행하고 기록을 마이페이지에서 확인합니다.
 
+    <br/>
+
   - **Doctor Service**
 
     > - 재활사는 재활치료가 가능한 시간을 등록합니다.
     > - 재활이 매칭된 환자에게 메세지를 보낼 수 있습니다.
     > - 수업에 대한 피드백 작성 지원 및 여러 재활일정을 효율적으로 관리하도록 지원합니다.
 
+    <br/>
+
   - **Admin Service**
 
     > - 관리자는 공지사항을 등록, 수정, 삭제합니다.
     > - 관리자는 상담신청을 관리하고 화상 상담방을 개설하여 재활사와 환자의 서비스 이용을 촉진합니다.
 
+      <br/>
+
   - **Supported Service**
 
     > - 반응형 웹으로 설계되어서 멀티 디바이스를 지원합니다.
+
+      <br/>
+
+---
 
 ## 📌 목차
 
 [🏃‍♂️ Marathon 🏃‍♀️]
 
+- [팀원 / 역할](#👤-팀원--역할)
+
+- [시연연상](#📢시연연상)
+
 - [프로젝트 시작하기](#🏃-프로젝트-시작하기)
+
   - [시작하기에 앞서](#시작하기에-앞서)
-  - [지원하는 브라우저](#-지원하는-브라우저)
+  - [지원하는 브라우저](#🌐-지원하는-브라우저)
   - [설치하기](#설치하기)
   - [실행하기](#실행하기)
   - [배포하기](#배포하기)
-- [시연연상](#시연연상)
-- [서비스 기획]
-  - [1. 프로젝트 Conventions]
-  - [2. 프로젝트 아이디어 기획]
-  - [3. Flow Chart]
-  - [4. ERD 다이어그램]
-  - [5. 사용된 도구]
-  - [6. 사용된 기술]
-  - [7. 시스템 아키택쳐]
-  - [8. Design & MockUp]
+
+<br/>
+
+- [서비스 기획](#📝-서비스-기획)
+
+  - [프로젝트 Conventions](#🔐-프로젝트-conventions)
+  - [프로젝트 아이디어 기획](#💡프로젝트-아이디어-기획)
+  - [Flow Chart](#📊flow-chart)
+  - [ERD 다이어그램](#💬erd-다이어그램)
+  - [사용된 기술](#🛠️-사용된-기술)
+  - [시스템 아키택쳐](#🖥️-시스템-아키텍쳐)
+  - [페이지 작성 명세서](#📑-페이지-작성-명세서)
+  - [Design & MockUp](#🖌-design--mockup)
+
+  <br/>
+
 - [서비스 소개](#📼-서비스-소개)
+
   - [1. 메인페이지](#1-메인페이지)
   - [2. 상담신청](#2-상담신청)
   - [3. 화상상담](#3-화상상담)
@@ -74,11 +96,39 @@
   - [14. 재활사 일정관리](#14-재활사-일정관리)
   - [15. 수업일정관리](#15-수업일정관리)
   - [16. 기타페이지](#16-기타페이지)
-- [저자](#-저자)
+
+  <br/>
+
+---
+
+## 👤 팀원 / 역할
+
+- 김동연 - DongYeon Kim - eastflow815@gmail.com
+- 김정수 - jumgsu Kim - kjskjs356@gmail.com
+- 윤호산 - Hosan Yoon - yoonhosan@naver.com
+- 이연학 - YeonHak Lee - dldusgkr788@gmail.com
+- 조웅희 - Unghui Cho - paul9512@gmail.com
+- 최준아 - Juna Choi - jn307742@gmail.com
+
+  <br/>
+
+---
+
+## 📢시연연상
+
+- https://youtu.be/3vCORb1hAqs
+
+  <br/>
+
+---
 
 ## 🏃 프로젝트 시작하기
 
+<br/>
+
 아래 방법을 따르시면 프로젝트를 실행시킬 수 있습니다.
+
+<br/>
 
 ### 시작하기에 앞서
 
@@ -86,6 +136,18 @@
 - [Zulu 11](https://www.azul.com/downloads-new/?package=jdk#zulu)
 - [Node.js 12.8.1](https://nodejs.org/ko/download/)
 - [MySQL 8.0](https://www.mysql.com/downloads/)
+
+  <br/>
+
+## 🌐 지원하는 브라우저
+
+| <img src='https://user-images.githubusercontent.com/19357410/91040268-e27b8100-e648-11ea-9dfa-21123112fd23.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040279-e7403500-e648-11ea-8b38-07049ca300af.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040276-e6a79e80-e648-11ea-8c97-ddc1d35d761c.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040282-e7403500-e648-11ea-9f42-d8abd35e9b50.png' width=60> |
+| :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
+|                                                          latest                                                           |                                                          latest                                                           |                                                          latest                                                           |                                                          latest                                                           |
+
+  <br/>
+
+---
 
 ### 설치하기
 
@@ -100,6 +162,8 @@
    ```
    $ npm install
    ```
+
+  <br/>
 
 ### 실행하기
 
@@ -143,6 +207,8 @@
 	설치 오류 발생 시 $npm install --force 로 강제 설치
     $ npm start
 ```
+
+  <br/>
 
 ### 배포하기
 
@@ -213,24 +279,217 @@
 
 8. npm build (dist 폴더 생성)
 
-## 🌐 지원하는 브라우저
+  <br/>
 
-| <img src='https://user-images.githubusercontent.com/19357410/91040268-e27b8100-e648-11ea-9dfa-21123112fd23.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040279-e7403500-e648-11ea-8b38-07049ca300af.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040276-e6a79e80-e648-11ea-8c97-ddc1d35d761c.png' width=60> | <img src='https://user-images.githubusercontent.com/19357410/91040282-e7403500-e648-11ea-9f42-d8abd35e9b50.png' width=60> |
-| :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------: |
-|                                                          latest                                                           |                                                          latest                                                           |                                                          latest                                                           |                                                          latest                                                           |
+---
 
-## 🛠️ 사용된 도구
+## 📝 서비스 기획
 
-- React 18.2.0
-- Node 18.12.1 LTS
-- Npm 8.19.2
-- Spring boot 2.5.6
-- Gradle 7.6
-- IDE: Visual Studio Code 1.48 / IntelliJ IDEA 2022.3.1
+<br/>
 
-## 🖥️ 사용된 기술
+기본적인 프로젝트 컨벤션에서 부터 기획 Docs를 소개하는 부분 입니다.
+
+<br/>
+
+---
+
+## 🔐 프로젝트 Conventions
+
+### - Git 메세지 컨벤션
+
+<br/>
+
+> [prefix]: [type] #issue 제목
+
+- Prefix - `FE / BE / COMMON`
+- Type
+  | Type | 설명 |
+  | -------- | ------------------------------------------------------------------------------------ |
+  | FEAT | new feature : 새로운 기능 생성 |
+  | FIX | bug fix |
+  | REFACTOR | refactoring production code : 코드 리펙토링 |
+  | STYLE | formatting, missing semi colons, etc; no code change : 코드 스타일 수정(컨벤션 관련) |
+  | DOCS | changes to documentation : ReadMe같은 문서 수정 |
+  | CHORE | updating grunt tasks etc. no production code change : 기타 코드는 고치지 않는 잡일 |
+  | TEST | test code |
+  | STUDY | personal study code |
+  ||
+
+<br/>
+
+EX)
+
+> [BE] : [FEAT] Jwt 토큰 생성 기능 구현
+
+> [FE] : [FEAT] 서비스 안내 페이지 HTML CSS 완성 // 데이터 처리는 구현 중
+
+> [COMMON] : [STUDY] 1주차 회원가입 기능 구현
+
+<br/>
+
+- 규칙
+  - Merge Request 제목은 전체 내용을 간결하게 요약할 것.
+  - 함수 기반의 커밋을 진행하며, 함수 작성 이유를 담을 것.
+  - 함수가 사용된 기능 및 관련 기능을 밝힐 것.
+  - 내용은 한글로 작성한다.
+
+> 권한을 막아 놓기는 했지만 **반드시 새로 브랜치를 파고** push 한 뒤 팀장/부팀장에게 Merge Request를 깃랩에서 직접 요청하기!!
+
+<br/>
+
+### - Git Branch 전략
+
+<br/>
+
+| 분류   | 설명                                            |
+| ------ | ----------------------------------------------- |
+| master | 실제로 배포한 안정적인 버전                     |
+| dev    | 개발 완료한 기능이 포함된 상태                  |
+| hotfix | 긴급한 오류 수정 시 master 브랜치의 직속 브랜치 |
+| study  | 개인용 제출 브랜치, master에 머지 안함          |
+|        |
+
+<br/>
+
+### - 프론트 컨벤션
+
+- let, const로 변수 선언하기
+
+- 변수, 함수명 모두 Camel Case로 작성
+
+- CSS의 경우 **[페이지 or 컴포넌트 이름].module.css** 를 활용
+  CSS 모듈을 사용해서 각자 class 이름은 겹쳐도 상관없으니 편한대로 작명
+
+- CSS 파일의 경우 해당하는 컴포넌트 / 페이지 폴더 안에 JSX파일과 함께 생성한다.
+
+- 동적 페이지를 위한 Grid 레이아웃은 공통적으로 BootStrap의 Class 사용
+  ”**md**(768≤ : 테블릿 화면), **lg**(960px≤ : 데스크탑 화면) 명만 사용 → 모바일은 별도 grid X”
+
+- **Boolean 변수**는 “is”로 시작하기
+
+- JSX 파일 구조에서 변수 - 함수 - useEffet - HTML 순으로 구성하기. Styled Components를 사용시 useEffect 다음 부분에 만들어서 사용하기. 각 부분은 // 변수 // 함수 // useEffect 식으로
+  구분해 주기.
+
+- 함수와 변수를 작성 할 때 **주석**으로 무엇에 활용하는 용도인지 간단하게 적어주기
+
+- 메인 함수 제외하고는 모두 화살표 함수로 표기
+
+- import로 본문에 이미지 자체를 가져 올 때에는 꼭 src 폴더 안에 이미지 파일을 위치시켜야 한다.
+  반대로 src를 통해서 css로 간접적으로 이미지를 가져올 때에는 꼭 public 폴더 안에 넣어야 한다.
+  ( 안지키면 어차피 에러나서 강제로 지켜야 한다. )
+
+- Redux의 initialState를 바꾸는 변경함수는 chang변수명(Camel 케이스) 규칙을 적용 하자.
+  비동기 통신은 전부 Component안에서 수행해야 하며 ReactQuery를 활용하여 서버 State와 클라이언트 State를 구분해서 관리
+
+- 프론트의 스켈레톤 코드 : 페이지 별로 분할, 각 페이지의 별로 또 컴포넌트 폴더를 분할,
+  각 페이지 or 기능을 중심으로 redux store를 분할, axios를 수행할 통신 기능을 분할,
+  서버에 요청시 자동으로 해더에 쿠키(JWT or 세션쿠키) 달아주는 custom axios 사용
+
+- CSS의 클래스 명은 Snake case, 변수명 선언은 Camel case, JSX 컴포넌트 이름은 Pascal case
+
+- src는 절대 경로가 설정되어 있지만 public은 상대경로로 입력해야됨!!
+
+- 폰트 사이즈는 em 단위 쓰기, 루트 폰트 사이즈 16px 기준 - App.css에 설정되어 있음  
+  해상도가 작아지면 개별 컴포넌트에서 미디어 쿼리를 이용해 부모 폰트 사이즈를 변경해주기
+
+<br/>
+
+### - 백엔드 컨벤션
+
+- 의존성 주입방법 : 생성자 주입
+
+- 로그 기록 방식
+  `LOGGER.info("[loadUserByUsername] loadUserByUsername 수행. username : {}", username);`
+
+- dto, entity 네이밍
+  ex) UserDto(요청dto), UserResponseDto(응답dto), User(entity)
+  → 단 요청과 응답이 다르지 않을경우 UserDto로 통일
+
+- 객체생성시 builder로 생성하기
+
+- CRUD 메소드 네이밍
+
+- 구글 코드 컨벤션 IDE적용
+
+<br/>
+
+---
+
+## 💡프로젝트 아이디어 기획
+
+<br/>
+
+![아이디어](/Docs/아이디어1.png)
+![아이디어](/Docs/아이디어2.png)
+![아이디어](/Docs/아이디어3.png)
+![아이디어](/Docs/아이디어4.png)
+
+---
+
+## 📊Flow Chart
+
+<br/>
+
+![FlowChart](/Docs/flowchart.png)
+
+<br/>
+
+---
+
+## 💬ERD 다이어그램
+
+<br/>
+
+![ERD](/Docs/marathon_ERD.png)
+
+<br/>
+
+---
+
+## 🛠️ 사용된 기술
+
+<br/>
 
 <img src="./Docs/skill-spec.png" width=850>
+
+## 버전 정보
+
+### - 백엔드
+
+- Java Zulu 11.0.17
+  - SpringBoot 2.5.6
+    - Gradle 7.6
+    - Spring Security
+    - Spring Data JPA
+    - Lombok
+    - mysql driver
+    - spring web
+    - spring configuration processor
+    - jjwt 0.9.1
+- MySQL 8.0.31
+- API 통합 테스트 툴 : postman
+
+### - 프론트엔드
+
+- Node 18.12.1 LTS
+
+  - NPM 8.19.2
+  - React 18.2.0
+    - React-Dom 18.2.0
+    - React-Redux 8.0.5
+    - React-Router-Dom 6.7.0
+    - Reduxjs/Toolkit 1.9.1
+    - React-Scripts 5.0.1
+    - React-Query 4.22.0
+    - Styled-Components 5.3.6
+  - axios 1.2.3
+  - bootstrap 5.2.3
+
+- IDE: Visual Studio Code 1.48 / IntelliJ IDEA 2022.3.1
+
+<br/>
+
+## 기능설명
 
 **[ BACK END ]**
 
@@ -271,18 +530,39 @@
   - Git Flow 에 따른 브랜치 전략 수립.
   - merge 시 코드 리뷰 진행.
 - **Jira** : 이슈 관리 도구로 활용.
+
   - 주요 기능들을 이슈로 등록하고 Story Point를 산정한 후, 담당자를 지정하여 프로젝트를 진행.
   - 1주일 기준 40시간을 할당하여 본인의 계획을 구체적으로 설계.
 
+  <br/>
+
+---
+
 ## 🖥️ 시스템 아키텍쳐
+
+<br/>
 
 <img src="./Docs/architecture.png" width=850>
 
-## 시연연상
+<br/>
 
-- https://youtu.be/3vCORb1hAqs
+---
+
+## 📑 페이지 작성 명세서
+
+  <br/>
+
+---
+
+## 🖌 Design & MockUp
+
+  <br/>
+
+---
 
 ## 📼 서비스 소개
+
+<br/>
 
 ### 1. 메인페이지
 
@@ -350,6 +630,12 @@
 
 ### 11. 스스로학습하기
 
+- 색깔위치 맞추기
+
+  <img src="./Docs/gif/matchcolor.gif" width=450>
+
+  - **[색깔위치 맞추기] :** 색칠되어있는 칸을 기억한 후 기억을 토대로 똑같이 맞추는 게임이다. 동물위치 맞추기와 유사하게 공간 기억력 훈련에 도움을 주는 게임이다.
+
 - 그림카드 맞추기
 
   <img src="./Docs/gif/matchpicture.gif" width=450>
@@ -361,12 +647,6 @@
   <img src="./Docs/gif/matchanimal.gif" width=450>
 
   - **[동물위치 맞추기] :** 주어진 보드에서 해당 동물들을 맞는 위치에 배치하는 게임이다. 환자의 공간 기억력을 훈련하는 게임이다.
-
-- 색깔위치 맞추기
-
-  <img src="./Docs/gif/matchcolor.gif" width=450>
-
-  - **[색깔위치 맞추기] :** 색칠되어있는 칸을 기억한 후 기억을 토대로 똑같이 맞추는 게임이다. 동물위치 맞추기와 유사하게 공간 기억력 훈련에 도움을 주는 게임이다.
 
 ### 12. 스스로학습하기 통계
 
@@ -397,12 +677,3 @@
 <img src="./Docs/gif/etc.gif" width=450>
 
 - **[기타 페이지] :** 서비스 안내 게시판은 말아톤 사이트의 이용목적, 이용가치, 재활사에 대한 안내 등이 소개되어 있다. 공지사항 게시판은 사이트에서 공지할 내용을 확인할 수 있으며 관리자만 작성, 수정, 삭제 등이 가능하고 나머지 유저는 조회만 할 수 있다. 공지사항 게시판의 경우 제목 or 내용 or 제목 + 내용으로 검색 기능도 제공한다.
-
-## 👤 저자
-
-- 김동연 - DongYeon Kim - eastflow815@gmail.com
-- 김정수 - jumgsu Kim - kjskjs356@gmail.com
-- 윤호산 - Hosan Yoon - yoonhosan@naver.com
-- 이연학 - YeonHak Lee - dldusgkr788@gmail.com
-- 조웅희 - Unghui Cho - paul9512@gmail.com
-- 최준아 - Juna Choi - jn307742@gmail.com
