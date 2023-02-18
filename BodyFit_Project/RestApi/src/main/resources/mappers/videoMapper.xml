@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bodyfit.restapi.model.dao.VideoDao">
+
+    <resultMap id="videoMap" type="Video">
+        <result column="video_id" property="videoId"/>
+        <result column="video_url" property="videoUrl"/>
+        <result column="title" property="title"/>
+        <result column="channel" property="channel"/>
+        <result column="description" property="description"/>
+        <result column="category" property="category"/>
+        <result column="like_count" property="likeCount"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="review_count" property="reviewCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <resultMap id="likeMap" type="Like">
+        <result column="like_id" property="likeId"/>
+        <result column="user_seq" property="userSeq"/>
+        <result column="video_id" property="videoId"/>
+    </resultMap>
+
+    <insert id="insertVideo" parameterType="Video">
+        INSERT INTO video (video_url, title, description, channel, create_time, update_time, category)
+        VALUES (#{videoUrl}, #{title}, #{description}, #{channel}, now(), now(), #{category});
+    </insert>
+
+    <update id="updateVideo" parameterType="Video">
+        UPDATE video
+        SET video_url = #{videoUrl},
+        title = #{title},
+        channel = #{channel},
+        description = #{description},
+        like_count = #{likeCount},
+        view_count = #{viewCount},
+        update_time = now(),
+        category = #{category}
+        WHERE video_id = #{videoId};
+    </update>
+    <update id="updateLikeCountByVideoIdAndLong" parameterType="long">
+        UPDATE video
+        <if test="i >= 0">
+            SET like_count = like_count + 1
+        </if>
+        <if test="0 > i">
+            SET like_count = like_count - 1
+        </if>
+        WHERE video_id = #{videoId};
+    </update>
+    <update id="updateReviewCountByVideoIdAndLong" parameterType="long">
+        UPDATE video
+        <if test="i >= 0">
+            SET review_count = review_count + 1
+        </if>
+        <if test="0 > i">
+            SET review_count = review_count - 1
+        </if>
+        WHERE video_id = #{videoId};
+    </update>
+    <update id="updateViewCountByVideoId" parameterType="long">
+        UPDATE video
+        SET view_count = view_count + 1
+        WHERE video_id = #{videoId};
+    </update>
+    <delete id="deleteVideo" parameterType="long">
+        DELETE FROM video
+        WHERE video_id = #{videoId};
+    </delete>
+    <select id="selectByVideoId" parameterType="long" resultMap="videoMap">
+        SELECT * FROM video
+        WHERE video_id = #{videoId};
+    </select>
+    <select id="selectAllByCondition" parameterType="SearchCondition" resultMap="videoMap">
+        SELECT * FROM video
+        <choose>
+            <when test='"전신".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '전신', '%')
+            </when>
+            <when test='"상체".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '상체', '%')
+            </when>
+            <when test='"하체".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '하체', '%')
+            </when>
+            <when test='"코어".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '코어', '%')
+            </when>
+            <when test='"기타".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '기타', '%')
+            </when>
+            <otherwise>
+                WHERE category LIKE CONCAT('%','','%')
+            </otherwise>
+        </choose>
+        <choose>
+            <when test='"category".equalsIgnoreCase(mod)'>
+                AND category LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                AND title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"channel".equalsIgnoreCase(mod)'>
+                AND channel LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"description".equalsIgnoreCase(mod)'>
+                AND description LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+        <choose>
+            <when test='"view_count".equalsIgnoreCase(orderBy)'>
+                ORDER BY view_count DESC
+            </when>
+            <when test='"like_count".equalsIgnoreCase(orderBy)'>
+                ORDER BY like_count DESC
+            </when>
+            <when test='"review_count".equalsIgnoreCase(orderBy)'>
+                ORDER BY review_count DESC
+            </when>
+            <otherwise>
+                ORDER BY video_id DESC
+            </otherwise>
+        </choose>
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+    <select id="getTotalByCondition" parameterType="SearchCondition" resultType="int">
+        SELECT COUNT(*) FROM video
+        <choose>
+            <when test='"전신".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '전신', '%')
+            </when>
+            <when test='"상체".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '상체', '%')
+            </when>
+            <when test='"하체".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '하체', '%')
+            </when>
+            <when test='"코어".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '코어', '%')
+            </when>
+            <when test='"기타".equalsIgnoreCase(category)'>
+                WHERE category LIKE CONCAT('%', '기타', '%')
+            </when>
+            <otherwise>
+                WHERE category LIKE CONCAT('%','','%')
+            </otherwise>
+        </choose>
+        <choose>
+            <when test='"category".equalsIgnoreCase(mod)'>
+                AND category LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                AND title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"channel".equalsIgnoreCase(mod)'>
+                AND channel LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"description".equalsIgnoreCase(mod)'>
+                AND description LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+    </select>
+
+    <select id="selectAllByLike" parameterType="PageCondition" resultMap="videoMap">
+        SELECT v.video_id, v.video_url, v.title, v.channel, v.description,
+        v.create_time, v.update_time, v.category, v.like_count, v.review_count, v.view_count
+        FROM `like` l
+        INNER JOIN `video` v
+        ON l.video_id = v.video_id
+        WHERE l.user_seq = #{userSeq}
+        ORDER BY video_id DESC
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+    <select id="getTotalByLike" parameterType="long" resultType="int">
+        SELECT COUNT(v.video_id)
+        FROM `like` l
+        INNER JOIN `video` v
+        ON l.video_id = v.video_id
+        WHERE l.user_seq = #{userSeq}
+    </select>
+
+    <insert id="insertLike" parameterType="long">
+        INSERT INTO `like` (video_id, user_seq)
+        VALUES (#{videoId}, #{userSeq});
+    </insert>
+    <delete id="deleteLike" parameterType="long">
+        DELETE FROM `like`
+        WHERE video_id = #{videoId} AND user_seq = #{userSeq};
+    </delete>
+    <select id="selectLike" parameterType="long" resultMap="likeMap">
+        SELECT * FROM `like`
+        WHERE video_id = #{videoId} AND user_seq = #{userSeq};
+    </select>
+    <select id="selectAllByFollowingLike" parameterType="PageCondition" resultMap="videoMap">
+        SELECT DISTINCT v.video_id, v.video_url, v.title, v.description,
+        v.create_time, v.update_time, v.category, v.like_count, v.view_count
+        FROM `like` l
+        INNER JOIN `video` v
+        ON l.video_id = v.video_id
+        WHERE l.user_seq IN
+        (SELECT U.user_seq as user_seq
+        FROM FOLLOW F
+        INNER JOIN USER U
+        ON F.followed_user_seq = U.user_seq
+        WHERE F.following_user_seq = #{userSeq})
+        ORDER BY video_id DESC
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+    <select id="getTotalByFollowingLike" parameterType="long" resultType="int">
+        SELECT DISTINCT COUNT(v.video_id)
+        FROM `like` l
+        INNER JOIN `video` v
+        ON l.video_id = v.video_id
+        WHERE l.user_seq IN
+        (SELECT U.user_seq as user_seq
+        FROM FOLLOW F
+        INNER JOIN USER U
+        ON F.followed_user_seq = U.user_seq
+        WHERE F.following_user_seq = #{userSeq})
+    </select>
+</mapper>

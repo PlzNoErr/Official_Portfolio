@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bodyfit.restapi.model.dao.ArticleDao">
+
+    <resultMap id="ArticleMap" type="Article">
+        <result column="article_id" property="articleId"/>
+        <result column="user_seq" property="userSeq"/>
+        <result column="nickname" property="nickName"/>
+        <result column="board_type" property="boardType"/>
+        <result column="view_count" property="viewCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+    <resultMap id="articleCommentMap" type="ArticleComment">
+        <result column="comment_id" property="commentId"/>
+        <result column="user_seq" property="userSeq"/>
+        <result column="article_id" property="articleId"/>
+        <result column="nickname" property="nickName"/>
+        <result column="content" property="content"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="deleted" property="deleted"/>
+        <result column="group_id" property="groupId"/>
+        <result column="group_order" property="groupOrder"/>
+        <result column="depth" property="depth"/>
+        <result column="original_comment_id" property="originalCommentId"/>
+    </resultMap>
+
+    <!--  -->
+
+    <insert id="insertArticle" parameterType="Article">
+        INSERT INTO
+        article
+        (user_seq, create_time, update_time, title, content, board_type)
+        VALUES
+        (#{userSeq}, now(), now(), #{title}, #{content}, #{boardType})
+    </insert>
+
+    <update id="updateArticle" parameterType="Article">
+        UPDATE article
+        SET
+        title = #{title},
+        content = #{content},
+        update_time = now()
+        WHERE article_id = #{articleId}
+    </update>
+
+    <delete id="deleteArticle" parameterType="long">
+        DELETE FROM article
+        WHERE article_id = #{articleId}
+    </delete>
+
+    <select id="selectArticleById" parameterType="long" resultMap="ArticleMap">
+        SELECT u.user_seq, u.nickname, a.article_id, a.title, a.content, a.view_count, a.update_time, a.board_type
+        FROM `article` a INNER JOIN `user` u ON a.user_seq = u.user_seq
+        WHERE a.article_id = #{articleId}
+    </select>
+
+    <update id="updateViewCountByArticleId" parameterType="long">
+        UPDATE article
+        SET view_count = view_count + 1
+        WHERE article_id = #{articleId}
+    </update>
+
+    <select id="selectAllArticlesByCondition" parameterType="SearchCondition" resultMap="ArticleMap">
+        SELECT DISTINCT u.user_seq, u.nickname, a.article_id, a.title, a.content, a.view_count, a.update_time,
+        a.board_type
+        FROM `article` a INNER JOIN `user` u ON a.user_seq = u.user_seq
+        <choose>
+            <when test="boardType==1">
+                WHERE a.`board_type` = 1
+            </when>
+            <otherwise>
+                WHERE board_type = 0
+            </otherwise>
+        </choose>
+        <choose>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                AND a.title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"content".equalsIgnoreCase(mod)'>
+                AND a.content LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"nickName".equalsIgnoreCase(mod)'>
+                AND u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+        <choose>
+            <when test='"viewCount".equalsIgnoreCase(orderBy)'>
+                ORDER BY a.view_count DESC
+            </when>
+            <when test='"updateTime".equalsIgnoreCase(orderBy)'>
+                ORDER BY a.update_time DESC
+            </when>
+            <otherwise>
+                ORDER BY a.article_id DESC
+            </otherwise>
+        </choose>
+        LIMIT #{offset}, #{countPerPage}
+    </select>
+
+    <select id="getTotalByCondition" parameterType="SearchCondition" resultType="int">
+        SELECT COUNT(*)
+        FROM `article` a INNER JOIN `user` u ON a.user_seq = u.user_seq
+        <choose>
+            <when test="boardType==1">
+                WHERE a.`board_type` = 1
+            </when>
+            <otherwise>
+                WHERE board_type = 0
+            </otherwise>
+        </choose>
+        <choose>
+            <when test='"title".equalsIgnoreCase(mod)'>
+                AND a.title LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"content".equalsIgnoreCase(mod)'>
+                AND a.content LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+            <when test='"nickName".equalsIgnoreCase(mod)'>
+                AND u.nickname LIKE CONCAT('%', #{keyword}, '%')
+            </when>
+        </choose>
+    </select>
+
+
+    <insert id="insertComment" parameterType="ArticleComment" useGeneratedKeys="true" keyColumn="comment_id"
+            keyProperty="commentId">
+        INSERT INTO `article_comment` (user_seq, article_id, content, create_time, update_time, deleted, group_id,
+        group_order, depth, original_comment_id)
+        VALUES (#{userSeq}, #{articleId}, #{content}, now(), now(), 0, #{groupId}, #{groupOrder}, #{depth},
+        #{originalCommentId});
+    </insert>
+
+    <update id="updateComment" parameterType="ArticleComment">
+        UPDATE `article_comment`
+        SET group_id = #{groupId},
+        group_order = #{groupOrder},
+        content = #{content}
+        WHERE comment_id = #{commentId};
+    </update>
+
+    <update id="updateCommentsOrder" parameterType="ArticleComment">
+        UPDATE `article_comment`
+        SET group_order = group_order + 1
+        WHERE group_id = #{groupId} AND group_order >= #{groupOrder};
+    </update>
+
+    <update id="deleteComment" parameterType="long">
+        UPDATE `article_comment`
+        SET deleted = 1
+        WHERE comment_id = #{commentId};
+    </update>
+
+    <select id="getCommentOrder" parameterType="ArticleComment" resultType="int">
+        SELECT IFNULL ((
+        WITH RECURSIVE cte AS (
+            SELECT r.comment_id, r.group_order, r.original_comment_id
+            FROM `article_comment` r
+            WHERE r.original_comment_id = #{commentId}
+
+            UNION ALL
+
+            SELECT r.comment_id, r.group_order, r.original_comment_id
+            FROM `article_comment` r , cte
+            WHERE r.original_comment_id = cte.comment_id
+        )
+        SELECT MAX(group_order)
+        FROM cte) + 1,
+        #{groupOrder} + 1) AS result;
+    </select>
+
+    <select id="selectArticleCommentById" parameterType="long" resultMap="articleCommentMap">
+        SELECT * FROM `article_comment`
+        WHERE comment_id = #{commentId};
+    </select>
+
+    <select id="selectCommentsByArticleId" parameterType="PageCondition" resultMap="articleCommentMap">
+        SELECT c.comment_id, c.user_seq, c.article_id, IF(deleted > 0 , "삭제된 댓글입니다.",c.content) AS content,
+        c.create_time,
+        c.update_time, c.deleted, c.group_id,
+        c.group_order, c.depth, c.original_comment_id, u.nickname
+        FROM `article_comment` c
+        INNER JOIN `user` u
+        ON c.user_seq = u.user_seq
+        WHERE c.article_id = #{articleId}
+        ORDER BY c.group_id ASC, c.group_order ASC
+        LIMIT #{offset}, #{countPerPage};
+    </select>
+
+    <select id="getTotalCommentByArticleId" parameterType="long" resultType="int">
+        SELECT COUNT(*)
+        FROM `article_comment`
+        WHERE article_id = #{articleId};
+    </select>
+
+
+</mapper>

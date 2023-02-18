@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bodyfit.restapi.model.dao.GymDao">
+    <resultMap id="GymMap" type="Gym">
+        <result column="gym_id" property="gymId"/>
+        <result column="gym_name" property="gymName"/>
+        <result column="address" property="address"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+
+    <insert id="insertGym" parameterType="Gym">
+        INSERT INTO
+        gym
+        (gym_name, address, latitude, longitude)
+        VALUES
+        (#{gymName}, #{address}, #{latitude}, #{longitude})
+    </insert>
+
+    <delete id="deleteGym" parameterType="long">
+        DELETE FROM gym
+        WHERE gym_id = #{gymId}
+    </delete>
+
+    <select id="selectAllGyms" parameterType="double" resultMap="GymMap">
+        SELECT DISTINCT gym_name, address, latitude, longitude
+        FROM gym
+        WHERE (latitude -#{latitude} <![CDATA[<]]> 0.01) AND (latitude - #{latitude} <![CDATA[>]]> -0.01)
+        AND (longitude - #{longitude} <![CDATA[<]]> 0.01) AND (longitude - #{longitude} <![CDATA[>]]> -0.01)
+    </select>
+
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bodyfit.restapi.model.dao.UserDao">
+
+    <resultMap id="UserMap" type="User">
+        <result column="user_seq" property="userSeq"/>
+        <result column="user_id" property="userId"/>
+        <result column="password" property="password"/>
+        <result column="email" property="email"/>
+        <result column="nickname" property="nickName"/>
+        <result column="rank" property="rank"/>
+        <result column="create_time" property="createTime"/>
+        <result column="followed_count" property="followedCount"/>
+        <result column="following_count" property="followingCount"/>
+    </resultMap>
+
+    <resultMap id="FollowMap" type="Follow">
+        <result column="followed_user_seq" property="followedSeq"/>
+        <result column="following_user_seq" property="followingSeq"/>
+    </resultMap>
+
+    <insert id="insertUser" parameterType="User">
+        INSERT INTO
+        user
+        (user_id, password, email, nickname, create_time)
+        VALUES
+        (#{userId}, #{password}, #{email}, #{nickName}, now())
+    </insert>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM user
+        WHERE user_id = #{userId}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user
+        SET
+        password = #{password},
+        email = #{email},
+        nickname = #{nickName}
+        WHERE user_id = #{userId}
+    </update>
+
+    <select id="selectUserById" parameterType="String" resultMap="UserMap">
+        SELECT *
+        FROM user
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="seletUserByIdandPassword" parameterType="String" resultMap="UserMap">
+        SELECT *
+        FROM user
+        WHERE user_id = #{userId} AND password = #{password}
+    </select>
+
+    <select id="seletUserForReduplicationCheckById" parameterType="String" resultMap="UserMap">
+        SELECT *
+        FROM user
+        WHERE user_id = #{userId}
+    </select>
+
+    <select id="seletUserForReduplicationCheckByNickname" parameterType="String" resultMap="UserMap">
+        SELECT *
+        FROM user
+        WHERE nickname = #{nickName}
+    </select>
+
+    <insert id="insertFollow" parameterType="long">
+        INSERT INTO follow
+        (following_user_seq, followed_user_seq)
+        VALUES (#{followingSeq}, #{followedSeq})
+    </insert>
+
+    <delete id="deleteFollow" parameterType="long">
+        DELETE FROM follow
+        WHERE followed_user_seq = #{followedSeq} and following_user_seq = #{followingSeq}
+    </delete>
+
+    <update id="updateFollowedCount" parameterType="long">
+        UPDATE user
+        SET followed_count = followed_count + #{change}
+        WHERE user_seq = #{UserSeq}
+    </update>
+
+    <update id="updateFollowingCount" parameterType="long">
+        UPDATE user
+        SET following_count = following_count + #{change}
+        WHERE user_seq = #{UserSeq}
+    </update>
+
+    <select id="selectAllFollowersByUserSeq" parameterType="long" resultMap="UserMap">
+        SELECT U.user_id as user_id, U.nickname as nickname, U.user_seq as user_seq
+        FROM follow F INNER JOIN user U
+        ON F.followed_user_seq = U.user_seq
+        WHERE F.following_user_seq = #{userSeq}
+    </select>
+
+    <select id="selectAllFollowedByUserSeq" parameterType="long" resultMap="UserMap">
+        SELECT U.user_id as user_id, U.nickname as nickname, U.user_seq as user_seq
+        FROM follow F INNER JOIN user U
+        ON F.following_user_seq = U.user_seq
+        WHERE F.followed_user_seq = #{userSeq}
+    </select>
+    <select id="selectFollowingNow" parameterType="Follow" resultMap="FollowMap">
+        SELECT followed_user_seq, following_user_seq
+        FROM follow
+        WHERE `followed_user_seq` = #{followedSeq} AND `following_user_seq` = #{followingSeq}
+    </select>
+
+</mapper>
