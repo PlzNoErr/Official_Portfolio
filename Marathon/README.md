@@ -419,10 +419,10 @@ EX)
 
 <br/>
 
-![아이디어](/Docs/아이디어1.png)
-![아이디어](/Docs/아이디어2.png)
-![아이디어](/Docs/아이디어3.png)
-![아이디어](/Docs/아이디어4.png)
+![아이디어](./Docs/아이디어1.png)
+![아이디어](./Docs/아이디어2.png)
+![아이디어](./Docs/아이디어3.png)
+![아이디어](./Docs/아이디어4.png)
 
 ---
 
@@ -430,7 +430,7 @@ EX)
 
 <br/>
 
-![FlowChart](/Docs/flowchart.png)
+![FlowChart](./Docs/flowchart.png)
 
 <br/>
 
@@ -440,7 +440,7 @@ EX)
 
 <br/>
 
-![ERD](/Docs/marathon_ERD.png)
+![ERD](./Docs/marathon_ERD.png)
 
 <br/>
 
