@@ -6,8 +6,6 @@
     <content url="file://$MODULE_DIR$/../../marathon">
       <excludeFolder url="file://$MODULE_DIR$/../../marathon/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../marathon/build" />
-      <excludeFolder url="file://$MODULE_DIR$/../../marathon/build" />
-      <excludeFolder url="file://$MODULE_DIR$/../../marathon/.gradle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

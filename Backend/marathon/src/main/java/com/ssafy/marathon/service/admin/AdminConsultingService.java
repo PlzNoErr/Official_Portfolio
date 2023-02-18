@@ -25,14 +25,14 @@ public class AdminConsultingService {
 
         ConsultingResDto consultingResDto = ConsultingResDto.builder()
             .name(consulting.getName())
-            .birthDate(LocalDate.now())
+            .birthDate(consulting.getBirthDate())
             .email(consulting.getEmail())
             .phone1(consulting.getPhone1())
             .phone2(consulting.getPhone2())
             .phone3(consulting.getPhone3())
-            .sickDate(LocalDate.now())
+            .sickDate(consulting.getSickDate())
             .description(consulting.getDescription())
-            .hopeDate(LocalDate.now())
+            .hopeDate(consulting.getHopeDate())
             .checked(consulting.isChecked())
             .build();
         return consultingResDto;
