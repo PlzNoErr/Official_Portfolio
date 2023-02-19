@@ -1,11 +1,15 @@
-# BodyFItPjt
+<img src="./body-fit-vue-app/src/static/img/logo.png">
 
-## 구성원
+<br>
+
+# 구성원
 
 - 이연학
 - 김명준
 
-## 프로젝트 설명
+<br><br>
+
+# 프로젝트 설명
 
 - 시연영상 : https://ramen-buang.notion.site/1-4c8c01e1896c4bf6b1ff8eec890d6dd4
 
@@ -15,7 +19,9 @@
 - 게시판 / 리뷰에 댓글 기능을 지원합니다. 댓글은 계속해서 꼬리잇기로 내려가는 무한 대댓글의 기능을 지원합니다.
 - 마이페이지에서 내가 팔로우 하는 대상과 나를 팔로우 하는 대상 / 작성한 리뷰등을 간편하게 조회 할 수 있습니다.
 
-## 사용된 기술 스택
+<br><br>
+
+# 사용된 기술 스택
 
 - Node 18.12.1 LTS
   - NPM 8.19.2
@@ -47,7 +53,9 @@
 - IntelliJ
 - Visual Studio Code
 
-## 기획 단계
+<br><br>
+
+# 기획 단계
 
 ### 프론트 목업
 
