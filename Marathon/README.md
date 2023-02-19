@@ -104,14 +104,51 @@
 
 ## 👤 팀원 / 역할
 
-- 김동연 - DongYeon Kim - eastflow815@gmail.com
-- 김정수 - jumgsu Kim - kjskjs356@gmail.com
-- 윤호산 - Hosan Yoon - yoonhosan@naver.com
-- 이연학 - YeonHak Lee - dldusgkr788@gmail.com
-- 조웅희 - Unghui Cho - paul9512@gmail.com
-- 최준아 - Juna Choi - jn307742@gmail.com
+### FrontEnd
 
-  <br/>
+- 이연학 - YeonHak Lee - dldusgkr788@gmail.com
+  - 프로젝트 팀장 / 주제 기획
+  - 프로젝트 발표 / ppt 담당 / 진행 촐괄
+  - 프론트 라이브러리 세팅 / 프론트 총괄
+  - 페이지 / 컴포넌트 개발
+  - Openvidu 관련 webRTC기능 프론트 / 백앤드 총괄
+
+<br/>
+
+- 최준아 - Juna Choi - jn307742@gmail.com
+  - 페이지 / 컴포넌트 개발
+  - UCC 제작 담당
+  - Stomp활용한 소켓통신 개발 / 관련 라이브러리 분석 담당
+
+<br/>
+
+- 김정수 - jumgsu Kim - kjskjs356@gmail.com
+  - 페이지 / 컴포넌트 개발
+  - Docs작성 담당
+  - Stomp활용한 소켓통신 개발
+
+### BackEnd
+
+- 조웅희 - Unghui Cho - paul9512@gmail.com
+  - 프로젝트 부팀장 / 백앤드 총괄
+  - CI/CD관련 도커라이징 / https세팅 / 배포 총괄
+  - Rest API 개발
+  - Openvidu 관련 webRTC기능 서버 / 백앤드 총괄
+
+<br/>
+
+- 윤호산 - Hosan Yoon - yoonhosan@naver.com
+  - Rest API 개발
+  - Docs작성 담당
+  - 스프링 시큐리티 담당
+
+<br/>
+
+- 김동연 - DongYeon Kim - eastflow815@gmail.com
+  - Rest API 개발
+  - UCC 제작 담당
+
+<br/>
 
 ---
 
@@ -314,7 +351,6 @@
   | CHORE | updating grunt tasks etc. no production code change : 기타 코드는 고치지 않는 잡일 |
   | TEST | test code |
   | STUDY | personal study code |
-  ||
 
 <br/>
 
@@ -348,7 +384,6 @@ EX)
 | dev    | 개발 완료한 기능이 포함된 상태                  |
 | hotfix | 긴급한 오류 수정 시 master 브랜치의 직속 브랜치 |
 | study  | 개인용 제출 브랜치, master에 머지 안함          |
-|        |
 
 <br/>
 
@@ -563,15 +598,47 @@ EX)
 
   <br/>
 
+![API명세서](./Docs/api_1.png)
+![API명세서](./Docs/api_2.png)
+![API명세서](./Docs/api_3.png)
+![API명세서](./Docs/api_4.png)
+![API명세서](./Docs/api_5.png)
+![API명세서](./Docs/api_6.png)
+![API명세서](./Docs/api_7.png)
+![API명세서](./Docs/api_8.png)
+![API명세서](./Docs/api_9.png)
+![API명세서](./Docs/api_10.png)
+
+  <br/>
+
 ---
 
 ## 📑 페이지 작성 명세서
 
   <br/>
 
+![페이지 작성 명세서](./Docs/pr_1.png)
+![페이지 작성 명세서](./Docs/pr_2.png)
+![페이지 작성 명세서](./Docs/pr_3.png)
+![페이지 작성 명세서](./Docs/pr_4.png)
+![페이지 작성 명세서](./Docs/pr_5.png)
+![페이지 작성 명세서](./Docs/pr_6.png)
+
+  <br/>
+
 ---
 
 ## 🖌 Design & MockUp
+
+  <br/>
+
+![MockUp](./Docs/mk_1.png)
+![MockUp](./Docs/mk_2.png)
+![MockUp](./Docs/mk_3.png)
+![MockUp](./Docs/mk_4.png)
+![MockUp](./Docs/mk_5.png)
+![MockUp](./Docs/mk_6.png)
+![MockUp](./Docs/mk_7.png)
 
   <br/>
 
