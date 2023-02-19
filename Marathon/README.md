@@ -1,4 +1,4 @@
-<img src='https://i8a304.p.ssafy.io/static/media/logoMain.f4f1b7e0f25882579452.png'>
+<img src="./Frontend/marathon/src/img/logoMain.png">
 
 # <center>🏃‍♂️ Marathon 🏃‍♀️</center>
 
