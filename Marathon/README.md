@@ -154,7 +154,13 @@
 
 ## 📢시연연상
 
-- https://youtu.be/3vCORb1hAqs
+### 프로젝트 소개영상
+
+- https://www.notion.so/ramen-buang/19f027d8a93b4409945a85f162c84b58
+
+### 프로젝트 기능 설명
+
+- https://www.notion.so/ramen-buang/541b084e9fcd45d9bf0413c10b7fa0ef
 
   <br/>
 
