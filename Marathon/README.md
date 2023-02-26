@@ -568,7 +568,7 @@ EX)
 **[ FRONT END ]**
 
 - **React** : 프로젝트 레이아웃 작성을 위한 Front-end Framework
-- **React-redux** : 전역 클라이언트 state를 편리하게 관리하기 위한 통합 라이브러리
+- **Redux/Toolkit** : 전역 클라이언트 state를 편리하게 관리하기 위한 통합 라이브러리
 - **React-Router-Dom** : 최소한의 새로고침으로 SPA의 기능을 극대화하고 유저의 사용 경험을 부드럽게 만들기 위해 사용되는 route관리 라이브러리
 - **Styled-Components** : CSS를 여러 조건상황에 맞게 동적으로 적용하기 위해서 사용.
 - **React-query** : 서버 state와 클라이언트 state를 분리하여 상태관리의 가독성을 높이고 다양한 캐싱, refetch 기능을 활용하여 효율적으로 서버 사이드 state를 효율적으로 관리하도록 유용한 기능을 제공.
