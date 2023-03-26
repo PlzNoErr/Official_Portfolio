@@ -6,7 +6,7 @@
 
 - ### 프로젝트 개요
 
-  - 🏠 [Marathon Homepage](https://i8a304.p.ssafy.io/)
+  - 🏠 [Marathon Homepage]
   - 현재는 서버가 내려가 있습니다!
 
   - `Marathon` 는 누구나 합리적인 비용으로 언어치료 기회를 누릴 수 있도록
