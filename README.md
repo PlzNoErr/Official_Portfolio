@@ -1,4 +1,4 @@
-<img src="skill.png">
+<img src="/skill.png">
 
 <br>
 <br>
