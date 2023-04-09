@@ -1,12 +1,7 @@
-# Official_Portfolio
-
-페어 or 팀 단위로 진행된 정식 포트폴리오
+<img src="./skill.png">
 
 <br>
 <br>
-
-## 현재 작성된 포트폴리오
-
 <br>
 
 ### - BodyFit
@@ -24,3 +19,13 @@
 <img src="./Marathon/Frontend/marathon/src/img/logoMain.png">
 
 - webRTC 기술을 기반으로한 화상 언어재활 서비스
+
+<br>
+<br>
+<br>
+
+### - Musicat
+
+<img src="./Musicat/image/Logo.png">
+
+- ChatGpt 기술을 활용한 자동 AI DJ 라디오 음악방송
