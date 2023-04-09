@@ -1,0 +1,76 @@
+// @use "../../../_var.scss";
+
+.songListBox {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  min-height: 150px;
+
+  .songList {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 2%;
+    padding-right: 1%;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    height: 30%;
+    background: var(--fade-font-color);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+}
+
+.songBtn {
+  background: none;
+  border: none;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.1s;
+  color: var(--font-color);
+  &:hover {
+    color: var(--blue-color);
+  }
+}
+
+.songSpan {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  background: none;
+  border: none;
+  align-items: center;
+  color: var(--font-color);
+}
+.userSongSpan {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  background: none;
+  border: none;
+  align-items: center;
+  color: var(--red-color);
+}
+
+.playingSongSpan {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  background: none;
+  border: none;
+  align-items: center;
+  color: var(--blue-color);
+}
+
+.songImg {
+  width: 40px;
+  margin-right: 3%;
+}

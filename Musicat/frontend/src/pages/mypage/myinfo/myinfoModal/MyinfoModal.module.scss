@@ -1,0 +1,28 @@
+.myinfoModal {
+  padding: 2% 30px;
+  width: 450px;
+  p {
+    color: var(--fade-font-color);
+  }
+  span {
+    margin-left: 30px;
+    color: var(--font-color);
+  }
+  .green {
+    color: var(--green-color);
+  }
+  .red {
+    color: var(--red-color);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 768px) {
+  .myinfoModal {
+    width: 92vw;
+    max-width: 450px;
+    font-size: 0.9rem;
+  }
+}

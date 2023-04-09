@@ -1,0 +1,89 @@
+.tape {
+  position: relative;
+  top: 30px;
+  width: 100%;
+  aspect-ratio: 376 / 239;
+}
+
+.fixedRatio {
+  aspect-ratio: 376 / 220;
+  width: 100%;
+  // max-width: 28vw;
+  border-radius: 10px;
+  height: auto; /* 높이는 자동으로 설정됨 */
+
+  max-width: 30vw;
+}
+
+// 톱니바퀴
+.gearImg {
+  position: absolute;
+  width: 10.64%;
+  height: auto;
+}
+
+.left {
+  top: 46.28%;
+  left: 26.9%;
+}
+
+.right {
+  top: 46.28%;
+  left: 61.2%;
+}
+
+.tapeImg {
+  position: absolute;
+  width: 100%;
+  max-width: 30vw;
+  height: auto;
+  border-radius: 10px;
+}
+
+.songName {
+  position: absolute;
+  overflow: hidden;
+  width: 58.93%;
+  top: 27.4%;
+  left: 21.28%;
+  z-index: 1;
+}
+
+.text {
+  white-space: nowrap;
+  font-size: 1.5vw;
+  margin-bottom: 8.5px;
+}
+
+@media screen and (max-width: 768px) {
+  .tape {
+    top: 20px;
+  }
+
+  .fixedRatio {
+    // max-width: 89%;
+    // margin-left: 5%;
+
+    max-width: 90%;
+    margin-left: 5%;
+  }
+
+  .tapeImg {
+    max-width: 90%;
+    margin-left: 5%;
+  }
+
+  .text {
+    font-size: 3vw;
+  }
+
+  .left {
+    top: 40.28%;
+    left: 28.9%;
+  }
+
+  .right {
+    top: 40.28%;
+    left: 60.2%;
+  }
+}

@@ -1,0 +1,92 @@
+.myinfo {
+  display: flex;
+  justify-content: space-around;
+  padding: 5% 3%;
+}
+.myinfo h3 {
+  color: var(--font-color);
+  font-weight: 300;
+  font-size: 1.4rem;
+  margin: 0 0 5px 0;
+}
+.myinfo .leftbox {
+  margin-top: 3%;
+}
+.myinfo .leftbox .toolbar {
+  width: 25%;
+  height: 25px;
+  border: 2px solid var(--font-color);
+  margin: 0 auto 40px;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+}
+.myinfo .leftbox .toolbar .circle {
+  height: 25px;
+  width: 25px;
+  background-color: var(--font-color);
+  position: absolute;
+  border-radius: 100%;
+  top: -8%;
+  right: -1%;
+  transition: 0.25s;
+}
+.myinfo .leftbox .toolbar .circleLeft {
+  right: 58%;
+}
+.myinfo .leftbox .fc {
+  color: var(--font-color);
+}
+.myinfo .leftbox .ffc {
+  color: var(--fade-font-color);
+}
+.myinfo .leftbox img {
+  max-width: 210px;
+  max-height: 210px;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 100%;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 0 auto 22px;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.myinfo .leftbox p {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 8px;
+}
+.myinfo .middle_hr {
+  margin: 2% 3%;
+  border: 1px solid var(--font-color);
+  writing-mode: vertical-rl;
+  height: 75%;
+}
+.myinfo .rightbox {
+  min-width: 50%;
+  margin-top: 5%;
+}
+.myinfo .rightbox h3 {
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 840px) {
+  .myinfo {
+    flex-direction: column;
+  }
+  .myinfo .leftbox {
+    width: 100%;
+  }
+  .myinfo .leftbox .toolbar {
+    width: 16%;
+    max-width: 55px;
+  }
+  .myinfo .middle_hr {
+    writing-mode: horizontal-tb;
+    margin: 30px 0px;
+  }
+  .myinfo .rightbox {
+    width: 100%;
+  }
+}/*# sourceMappingURL=Myinfo.module.css.map */

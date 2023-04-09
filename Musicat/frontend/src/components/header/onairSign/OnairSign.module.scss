@@ -1,0 +1,109 @@
+.onairSign {
+  // position: relative;
+  // width: 300px;
+  height: 100px;
+  z-index: 4;
+  // background-color: #000;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+}
+
+.box {
+  // position: absolute;
+  width: 170px;
+  height: 60px;
+  border-radius: 3px;
+  border: 1.2mm ridge black;
+  box-shadow: 4px 4px 1px 1px rgb(0, 0, 0, 0.2);
+  background: linear-gradient(to top, red, rgb(228, 107, 107), red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  text-align: center;
+  // width: 65%;
+  height: auto;
+  // margin: 0;
+  user-select: none;
+}
+
+.logo b {
+  // font: 400 19vh "Vibur";
+  font-size: 30px;
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444,
+    0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+.logo b span {
+  animation: blink linear infinite 2s;
+}
+.logo b span:nth-of-type(2) {
+  animation: blink linear infinite 3s;
+}
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  79% {
+    color: #333;
+  }
+  80% {
+    text-shadow: none;
+  }
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .onairSign {
+    height: 90px;
+
+    .box {
+      width: 150px;
+      height: 55px;
+    }
+
+    .logo b {
+      font-size: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .onairSign {
+    height: 75px;
+
+    .box {
+      width: 115px;
+      height: 45px;
+    }
+
+    .logo b {
+      font-size: 18px;
+    }
+  }
+}
