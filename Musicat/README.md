@@ -308,6 +308,5 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
 ## 프로젝트 참고 링크
 
 - [프로젝트 Notino](https://ramen-buang.notion.site/SSAFY-2-MusiCat-6ce1496529df4689bdae266db3d50466) Musicat
-- [GitHub - Link](자기 githut 링크) 포트폴리오 Github Link
 
 
