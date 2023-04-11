@@ -24,6 +24,9 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
 * 이슈 관리 : Jira
 * 형상 관리 : Git, Gitlab
 * 의사소통, 협업: Notion, Mattermost, Discord
+
+---
+
 * 개발환경
     * OS : Window10
     * IDE : Intellij, VSCode
@@ -33,6 +36,7 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
     * CI/CD : Jenkins
     * Reverse Proxy : Nginx
     * SSL : CertBot, Let's Encrypt
+    
 * 프론트엔드 (React)
     * Typescript
     * React
@@ -42,6 +46,7 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
     * sockjs-Client
     * stompjs
     * threejs
+    
 * 백엔드 (SpringBoot)
     * Springboot Starter Data JPA
     * Springboot Starter Websocket
@@ -54,6 +59,7 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
     * lombok
     * spring boot devtools
     * mariadb java client
+    
 * 백엔드 (RadioServer)
     * FastAPI
     * asyncio
@@ -229,12 +235,12 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
 ## 역할 분배
 | 이름 | 사진 | 역할 | 정보 |
 | ---- | ---- | ---- | ---- |
-| 김동언 | ![김동언](./image/human1.png) | 백엔드 | 카프카 / FastApi / CI/CD |
+| 김동언 | ![김동언](./image/human1.png) | 백엔드 | SpringBoot / Oath / Security |
 | 이찬희 | ![이찬희](./image/human2.png) | 백엔드 | SpringBoot |
-| 최웅렬 | ![최웅렬](./image/human4.png) | 백엔드 | SpringBoot / Oath / Security |
-| 이연학 | ![이연학](./image/human6.png) | 프론트엔드 | React |
-| 박동환 | ![박동환](./image/human3.png) | 프론트엔드 | React |
-| 최다은 | ![최다은](./image/human5.png) | 프론트엔드 | React |
+| 최웅렬 | ![최웅렬](./image/human4.png) | 백엔드 | 카프카 / FastApi / CI/CD |
+| 이연학 | ![이연학](./image/human6.png) | 프론트엔드 | React / SocketJs / Stomp |
+| 박동환 | ![박동환](./image/human3.png) | 프론트엔드 | React / TreeJs |
+| 최다은 | ![최다은](./image/human5.png) | 기획 / 디자인 | 기획 / 디자인 |
 
 ## 프로젝트 산출물
 
