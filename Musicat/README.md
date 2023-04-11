@@ -238,7 +238,7 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
 | 이찬희 | ![이찬희](./image/human2.png) | 백엔드 | SpringBoot |
 | 최웅렬 | ![최웅렬](./image/human4.png) | 백엔드 | 카프카 / FastApi / CI/CD |
 | 이연학 | ![이연학](./image/human6.png) | 프론트엔드 | React / SocketJs / Stomp |
-| 박동환 | ![박동환](./image/human3.png) | 프론트엔드 | React / TreeJs |
+| 박동환 | ![박동환](./image/human3.png) | 프론트엔드 | React / ThreeJs |
 | 최다은 | ![최다은](./image/human5.png) | 기획 / 디자인 | 기획 / 디자인 |
 
 ## 프로젝트 산출물
