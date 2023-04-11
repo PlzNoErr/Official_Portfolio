@@ -25,7 +25,6 @@ ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ
 * 형상 관리 : Git, Gitlab
 * 의사소통, 협업: Notion, Mattermost, Discord
 
----
 
 * 개발환경
     * OS : Window10
