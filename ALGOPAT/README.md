@@ -1,7 +1,7 @@
 👉👉 프로젝트 URL : [![Algopat](./image/algopat-logo.png/ "Algopat Logo")](https://algopat.kr/ "Visit Algopat")   
 ## 🤖ChatGPT & LangChain을 활용한 알고리즘 소스코드 효율성 분석 서비스🤖  
 
-프로젝트 UCC : [ALGOPAT - UCC]([https://ramen-buang.notion.site/Musicat-UCC-c561acbeb18743fb94ad90b9eeb6be23](https://ramen-buang.notion.site/UCC-89e580ecb3454403b90fe960ba883671))
+프로젝트 UCC : [ALGOPAT - UCC]([https://ramen-buang.notion.site/Musicat-UCC-c561acbeb18743fb94ad90b9eeb6be23](https://ramen-buang.notion.site/UCC-89e580ecb3454403b90fe960ba883671)
   
 ## 💡 프로젝트 소개 (배경, 개요)
 
