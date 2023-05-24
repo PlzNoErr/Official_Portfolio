@@ -3,8 +3,6 @@
 ![프로젝트 로고](./image/Logo.png/)
 ChatGPT와인공지능 음성기술을 결합한 인공지능 라디오 DJ 
 
-프로젝트 URL : 
-
 프로젝트 UCC : [Musicat - UCC](https://ramen-buang.notion.site/Musicat-UCC-c561acbeb18743fb94ad90b9eeb6be23)
 
 프로젝트 기간: 2023.02.27 ~ 2023.04.07
