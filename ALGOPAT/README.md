@@ -3,6 +3,7 @@
 
 프로젝트 UCC : [ALGOPAT - UCC](https://ramen-buang.notion.site/Musicat-UCC-c561acbeb18743fb94ad90b9eeb6be23](https://ramen-buang.notion.site/UCC-89e580ecb3454403b90fe960ba883671)
   
+  [Musicat - UCC](https://ramen-buang.notion.site/Musicat-UCC-c561acbeb18743fb94ad90b9eeb6be23)
 ## 💡 프로젝트 소개 (배경, 개요)
 
 알고리즘 문제를 풀다 보면 효율성 측면에서 소홀한 경우가 많습니다.  
