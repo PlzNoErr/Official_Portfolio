@@ -1,4 +1,4 @@
-👉👉 [![Algopat](./image/algopat-logo.png/ "Algopat Logo")](https://algopat.kr/ "Visit Algopat")   
+👉👉 URL : [![Algopat](./image/algopat-logo.png/ "Algopat Logo")](https://algopat.kr/ "Visit Algopat")   
 ## 🤖ChatGPT & LangChain을 활용한 알고리즘 소스코드 효율성 분석 서비스🤖  
   
 ## 💡 프로젝트 소개 (배경, 개요)
