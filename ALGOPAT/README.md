@@ -1,3 +1,4 @@
+<img src="./image/algopat-logo.png" style="width : 200px">
 
 ## 🤖ChatGPT & LangChain을 활용한 알고리즘 소스코드 효율성 분석 서비스🤖  
 
